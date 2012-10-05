@@ -45,9 +45,12 @@ class Connexion {
         else
         {
             $q = $this->pdo->prepare($statement);
-            foreach($args as $key => $value)
+            if($args)
             {
-                $q->bindValue($key, $value);
+                foreach($args as $key => $value)
+                {
+                    $q->bindValue($key, $value);
+                }
             }
             $q->execute();
             $res = $q->fetchAll(PDO::FETCH_ASSOC);
