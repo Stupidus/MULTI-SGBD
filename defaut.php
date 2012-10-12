@@ -1,5 +1,5 @@
 <h3>Connexion à une base de données</h3>
-<form action="?cat=0" method="POST">
+<form action="?cat=1" method="POST">
     <label for="sgbd">SGBD : </label>
     <select name="sgbd" id="sgbd">
         <option></option>
