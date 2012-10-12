@@ -43,7 +43,7 @@ class Connexion {
     
     public function query($statement, $args = NULL)
     {
-        if($this->SGBD == "oracle")
+        if($this->SGBD == "oracle2")
         {
             
         }
