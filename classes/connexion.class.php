@@ -22,6 +22,19 @@ class Connexion {
                     $this->pdo->query("SET NAMES UTF8");
                     break;
                 case "oracle":
+                    $tns = "  
+                        (DESCRIPTION =
+                            (ADDRESS_LIST =
+                            (ADDRESS = (PROTOCOL = TCP)(HOST = ".$host.")(PORT = ".$port."))
+                            )
+                            (CONNECT_DATA =
+                            (SERVICE_NAME = ".$dbname.")
+                            )
+                        )";
+                    $this->pdo = new PDO("oci:dbname=".$tns, $username, $password);
+                    $this->pdo->query("SET NAMES UTF8");
+                    break;
+                case "oracle2":
                     $this->oci = oci_connect($username, $password, $host);
                     break;
                 default:
