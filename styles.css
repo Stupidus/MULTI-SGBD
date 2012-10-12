@@ -15,3 +15,34 @@ label {
     width: 100px;
 }
 
+body {
+   font-family: calibri;
+}
+
+
+
+ input[type=submit] {
+    width: auto;
+    padding: 9px 15px;
+    background: #CE0613;
+    border: 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    cursor: pointer;
+ }
+
+ fieldset{
+ width: 300px;
+ }
+ 
+div#center{
+margin-left:25%;
+width:50%;
+}
+
+div#centerbutton{
+text-align:center;
+}
+
