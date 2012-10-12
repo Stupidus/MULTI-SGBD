@@ -1,0 +1,17 @@
+/* 
+    Document   : styles
+    Created on : 12 oct. 2012, 14:15:55
+    Author     : Victor
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+

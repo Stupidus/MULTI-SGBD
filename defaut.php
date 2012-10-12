@@ -1,3 +1,4 @@
+<h3>Connexion à une base de données</h3>
 <form action="?cat=0" method="POST">
     <label for="sgbd">SGBD : </label>
     <select name="sgbd" id="sgbd">
