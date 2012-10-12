@@ -9,6 +9,9 @@
     
     switch($cat)
     {     
+        case 0:
+            $content = get_include_contents('process_connexion.php');
+            break;
         default:            
             $content = get_include_contents('defaut.php');
             break;

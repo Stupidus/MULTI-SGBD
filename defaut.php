@@ -13,6 +13,9 @@
     <label for="port">Port : </label>
     <input type="text" name="port" id="port"/>
     <br/>
+    <label for="dbname">Base de données : </label>
+    <input type="text" name="dbname" id="dbname"/>
+    <br/>
     <label for="username">Utilisateur : </label>
     <input type="text" name="username" id="username"/>
     <br/>
