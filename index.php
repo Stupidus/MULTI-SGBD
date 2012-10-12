@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" media="all" href="/styles.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="styles.css" />
         <title>MULTI-SGBD</title>
     </head>
     <body>
