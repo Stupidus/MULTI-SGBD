@@ -9,7 +9,7 @@
     
     switch($cat)
     {     
-        case 0:
+        case 1:
             $content = get_include_contents('process_connexion.php');
             break;
         default:            
