@@ -19,6 +19,10 @@
                 case 2:
                     $content = get_include_contents('gestion.php');
                     break;
+                case 3:
+                    session_destroy();
+                    $content = "La session été fermée.";
+                    break;
                 default:
                         $content = get_include_contents('defaut.php');
                     break;
@@ -39,5 +43,7 @@
     </head>
     <body>
         <?php echo $content; ?>
+        <br/>
+        <a href="?cat=3">Se déconnecter</a>
     </body>
 </html>
