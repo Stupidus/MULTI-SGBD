@@ -40,7 +40,7 @@ class Connexion {
         $q = $this->pdo->prepare($statement);
         if($args)
         {
-            foreach($args as $value => $key)
+            foreach($args as $key => $value)
             {
                 echo "Bind ".$key." , ".$value."<br/>";
                 $q->bindValue($key, $value);
