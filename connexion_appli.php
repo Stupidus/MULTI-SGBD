@@ -5,8 +5,11 @@
         try
         {
             $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
-            $q = $connexion->query("SELECT * FROM USERS WHRE USERNAME = :username && PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
+            $q = $connexion->query("SELECT * FROM USERS WEHRE USERNAME = :username && PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
+            echo "<pre>";
             print_r($q);
+            print_r($POST);
+            echo "</pre>";
             if(sizeof($q) > 0)
             {
                 $_SESSION['auth'] = true;
