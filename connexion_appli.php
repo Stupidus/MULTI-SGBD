@@ -6,6 +6,7 @@
         {
             $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
             $q = $connexion->query("SELECT * FROM USERS WHERE USERNAME = :username && PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
+            print_r($q);
             if(sizeof($q) > 0)
             {
                 $_SESSION['auth'] = true;
