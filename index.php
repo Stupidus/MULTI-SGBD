@@ -7,7 +7,7 @@
     else
         $cat = null;    
     
-    if($_SESSION['auth'] == true)
+    if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth'] == true)
     {
         switch($cat)
         {     
