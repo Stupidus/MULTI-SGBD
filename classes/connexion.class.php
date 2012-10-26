@@ -45,8 +45,15 @@ class Connexion {
                 $q->bindValue($key, $value);
             }
         }
-        $q->execute();
-        $res = $q->fetchAll(PDO::FETCH_ASSOC);
+        if($q->execute())
+        {
+            $res = $q->fetchAll(PDO::FETCH_ASSOC);
+        }
+        else
+        {
+            $erreur = $q->errorInfo();
+            $res = array("Erreur" => $erreur[2]);
+        }
         return $res;
     }
 }
