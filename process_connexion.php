@@ -2,7 +2,8 @@
 try {
     echo "<h3>Connexion en cours</h3>";
     $connexion = new Connexion($_POST['sgbd'], $_POST['host'], $_POST['dbname'], $_POST['username'], $_POST['password'], $_POST['port']);
-    $_SESSION['connexion'] = array(
+    $_SESSION['connexion']['valide'] = true;
+    $_SESSION['connexion']['vars'] = array(
         "SGBD" => $_POST['sgbd'],
         "host" => $_POST['host'],
         "dbname" => $_POST['dbname'],
