@@ -42,7 +42,9 @@
         <title>MULTI-SGBD</title>
     </head>
     <body>
+        <h1><a href=".">MULTI-SGBD</a></h1>
         <?php echo $content; ?>
+        <br/>
         <br/>
         <a href="?cat=3">Se déconnecter</a>
     </body>
