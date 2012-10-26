@@ -7,19 +7,22 @@
     else
         $cat = null;    
     
-    if(isset($_SESSION['auth']) && !empty($_SESSION['auth']) && $_SESSION['auth'] == true)
+    if(isset($_SESSION['auth']) && !empty($_SESSION['auth']))
     {
-        switch($cat)
-        {     
-            case 1:
-                $content = get_include_contents('process_connexion.php');
-                break;
-            case 2:
-                $content = get_include_contents('gestion.php');
-                break;
-            default:
-                    $content = get_include_contents('defaut.php');
-                break;
+        if($_SESSION['auth'])
+        {
+            switch($cat)
+            {     
+                case 1:
+                    $content = get_include_contents('process_connexion.php');
+                    break;
+                case 2:
+                    $content = get_include_contents('gestion.php');
+                    break;
+                default:
+                        $content = get_include_contents('defaut.php');
+                    break;
+            }
         }
     }
     else
