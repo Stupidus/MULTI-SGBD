@@ -1,12 +1,12 @@
 <?php
     require_once 'fonctions.php';
     require_once 'classes/connexion.class.php';
+    session_start();
     
     if(isset($_GET['cat']) && !empty($_GET['cat']))
         $cat = $_GET['cat'];
     else
         $cat = null;    
-    print_r($_SESSION);
     if(isset($_SESSION['auth']) && !empty($_SESSION['auth']))
     {
         if($_SESSION['auth'])
