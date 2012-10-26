@@ -6,7 +6,7 @@
         $cat = $_GET['cat'];
     else
         $cat = null;    
-    
+    print_r($_SESSION);
     if(isset($_SESSION['auth']) && !empty($_SESSION['auth']))
     {
         if($_SESSION['auth'])
