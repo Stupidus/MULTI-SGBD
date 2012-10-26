@@ -8,7 +8,7 @@
             $q = $connexion->query("SELECT * FROM USERS WEHRE USERNAME = :username && PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
             echo "<pre>";
             print_r($q);
-            print_r($POST);
+            print_r($_POST);
             echo "</pre>";
             if(sizeof($q) > 0)
             {
