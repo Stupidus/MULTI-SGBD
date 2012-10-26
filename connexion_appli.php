@@ -6,14 +6,11 @@
         {
             $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
             $q = $connexion->query("SELECT * FROM USERS WHERE USERNAME = :username AND PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
-            echo "<pre>";
-            print_r($q);
-            print_r($_POST);
-            echo "</pre>";
+            
             if(sizeof($q) > 0)
             {
                 $_SESSION['auth'] = true;
-                $_SESSION['id_user'] = $q[0]['id'];
+                $_SESSION['id_user'] = $q[0]['ID'];
                 echo "Vous avez été correctement identifié par l'application.";
             }
             else
