@@ -5,7 +5,7 @@
         try
         {
             $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
-            $q = $connexion->query("SELECT * FROM USERS WHERE username = :username && password = :password", array(":username" => $_POST['username'], ":password" => $_POST['username']));
+            $q = $connexion->query("SELECT * FROM USERS WHERE username = :username && password = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));
             if(sizeof($q) > 0)
             {
                 $_SESSION['auth'] = true;
@@ -15,6 +15,7 @@
             else
             {
                 $_SESSION['auth'] = false;
+                echo "Erreur de connexion à l'application";
             }
         }
         catch(Exception $e)
