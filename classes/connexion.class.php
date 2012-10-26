@@ -42,7 +42,7 @@ class Connexion {
         {
             foreach($args as $value => $key)
             {
-                echo "Bind ".$key." à ".$value."<br/>";
+                echo "Bind ".$key." , ".$value."<br/>";
                 $q->bindValue($key, $value);
             }
         }
