@@ -21,7 +21,7 @@
                     break;
                 case 3:
                     session_destroy();
-                    $content = "La session été fermée.";
+                    $content = "La session été fermée. <a href='index.php'>Retour</a>";
                     break;
                 default:
                         $content = get_include_contents('defaut.php');
