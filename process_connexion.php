@@ -8,7 +8,7 @@ else
 switch($m)
 {
     default:
-        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['id_connexion']));
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['connexion_id']));
         try {
             $connexionTest = new Connexion($listeConnexions[0]['SGBD'], $listeConnexions[0]['HOST'], $listeConnexions[0]['PORT'], $listeConnexions[0]['DBNAME'], $listeConnexions[0]['USERNAME'], $listeConnexions[0]['PASSWORD']);
             $_SESSION['id_connexion'] = $_GET['id_connexion'];
