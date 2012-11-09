@@ -1,5 +1,6 @@
 <h3>Connexion</h3>
 <?php
+global $connexion;
     if(isset($_GET['m']) && $_GET['m'] == "1")        
     {
         $q = $connexion->query("SELECT * FROM USERS WHERE USERNAME = :username AND PASSWORD = :password", array(":username" => $_POST['username'], ":password" => $_POST['password']));

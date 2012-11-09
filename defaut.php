@@ -1,6 +1,7 @@
 <div id="center">
     Liste des connexions existantes :<br/><br/>
     <?php
+        global $connexion;
         if($_SESSION['adminlevel'] > 0)
             $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS");
         else
