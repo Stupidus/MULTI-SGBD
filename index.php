@@ -3,6 +3,15 @@
     require_once 'classes/connexion.class.php';
     session_start();
     
+    try
+    {
+        $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
+    }
+    catch(Exception $e)
+    {
+        echo $e->getMessage();
+    }
+    
     if(isset($_GET['cat']) && !empty($_GET['cat']))
         $cat = $_GET['cat'];
     else

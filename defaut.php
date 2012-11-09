@@ -1,6 +1,15 @@
 <div id="center">
+    Liste des connexions existantes :<br/><br/>
+    <?php
+        if($_SESSION['adminlevel'] > 0)
+            $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS");
+        else
+            $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE USER_ID = :USER_ID", array(":USER_ID" => $_SESSION['id_user']));
+        
+        var_dump($listeConnexions)
+    ?>
 <fieldset>
-	<h3>Connexion à une base de données</h3>
+	<h3>Ajouter une connexion à une base de données</h3>
 	<form action="?cat=1" method="POST">
 		<label for="sgbd">SGBD : </label>
 		<select name="sgbd" id="sgbd">
