@@ -1,14 +1,17 @@
-<div id="center">
-    Liste des connexions existantes :<br/><br/>
-    <?php
-        global $connexion;
-        if($_SESSION['adminlevel'] > 0)
-            $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS");
-        else
-            $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE USER_ID = :USER_ID", array(":USER_ID" => $_SESSION['id_user']));
-        
-        var_dump($listeConnexions)
+Liste des connexions existantes :<br/><br/>
+<?php
+    global $connexion;
+    if($_SESSION['adminlevel'] > 0)
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS");
+    else
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE USER_ID = :USER_ID", array(":USER_ID" => $_SESSION['id_user']));
+
+    foreach($listeConnexions as $connect)
+    {
+        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a><br/>";
+    }
     ?>
+<div id="center">
 <fieldset>
 	<h3>Ajouter une connexion à une base de données</h3>
 	<form action="?cat=1" method="POST">
