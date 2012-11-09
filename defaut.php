@@ -1,4 +1,4 @@
-<fieldset><label>Liste des connexions existantes</label>
+<fieldset><legend>Liste des connexions existantes</legend>
 <?php
     global $connexion;
     if($_SESSION['adminlevel'] > 0)
