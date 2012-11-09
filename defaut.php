@@ -2,9 +2,9 @@
 <?php
     global $connexion;
     if($_SESSION['adminlevel'] > 0)
-        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS ORDER BY ID");
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS ORDER BY ID ASC");
     else
-        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE USER_ID = :USER_ID ORDER BY ID", array(":USER_ID" => $_SESSION['id_user']));
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE USER_ID = :USER_ID ORDER BY ID ASC", array(":USER_ID" => $_SESSION['id_user']));
 
     foreach($listeConnexions as $connect)
     {
