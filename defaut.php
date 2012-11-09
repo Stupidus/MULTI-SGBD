@@ -1,4 +1,4 @@
-Liste des connexions existantes :<br/><br/>
+<fieldset><label>Liste des connexions existantes</label>
 <?php
     global $connexion;
     if($_SESSION['adminlevel'] > 0)
@@ -11,6 +11,7 @@ Liste des connexions existantes :<br/><br/>
         echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a><br/>";
     }
     ?>
+</fieldset>
 <div id="center">
 <fieldset>
 	<h3>Ajouter une connexion à une base de données</h3>

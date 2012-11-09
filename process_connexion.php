@@ -1,20 +1,23 @@
 <?php
-try {
-    echo "<h3>Connexion en cours</h3>";
-    $connexion = new Connexion($_POST['sgbd'], $_POST['host'], $_POST['dbname'], $_POST['username'], $_POST['password'], $_POST['port']);
-    $_SESSION['connexion']['valide'] = true;
-    $_SESSION['connexion']['vars'] = array(
-        "SGBD" => $_POST['sgbd'],
-        "host" => $_POST['host'],
-        "dbname" => $_POST['dbname'],
-        "username" => $_POST['username'],
-        "password" => $_POST['password'],
-        "port" => $_POST['port']
-    );
-    echo "Vous êtes bien connecté à la base de données : <a href='?cat=2'>Continuer</a>";
-}
-catch(Exception $e)
+global $connexion;
+
+if(isset($_GET['m']) && !empty($_GET['m']))
+    $m = $_GET['m'];
+else
+    $m = null;    
+switch($m)
 {
-    echo $e->getMessage();
+    default:
+        $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['id_connexion']));
+        try {
+            $connexionTest = new Connexion($listeConnexions[0]['SGBD'], $listeConnexions[0]['HOST'], $listeConnexions[0]['PORT'], $listeConnexions[0]['DBNAME'], $listeConnexions[0]['USERNAME'], $listeConnexions[0]['PASSWORD']);
+            $_SESSION['id_connexion'] = $_GET['id_connexion'];
+            echo "La connexion ".$listeConnexions[0]['LABEL']." a bien été selectionnée. <a href='?cat=2'>Retour</a>";
+        }
+        catch(Exception $e)
+        {
+            echo $e->getMessage();
+        }
+        break;
 }
 ?>
