@@ -33,7 +33,7 @@
                     $content = "La session été fermée. <a href='index.php'>Retour</a>";
                     break;
                 default:
-                        $content = get_include_contents('defaut.php');
+                    $content = get_include_contents('defaut.php');
                     break;
             }
         }
@@ -55,6 +55,12 @@
         <?php echo $content; ?>
         <br/>
         <br/>
+        <?php
+        if(isset($_SESSION['connexion_id']) && !empty($_SESSION['connexion_id']))
+        {
+            echo "<a href='?cat=0'>Gestion des bases de données</a>";
+        }
+        ?>
         <a href="?cat=3">Se déconnecter</a>
     </body>
 </html>

@@ -15,7 +15,10 @@
 <div id="center">
 <fieldset>
 	<h3>Ajouter une connexion à une base de données</h3>
-	<form action="?cat=1" method="POST">
+	<form action="?cat=1&amp;m=1" method="POST">
+                <label for="label">Label : </label>
+		<input type="text" name="label" id="label"/>
+		<br/>
 		<label for="sgbd">SGBD : </label>
 		<select name="sgbd" id="sgbd">
 			<option></option>
