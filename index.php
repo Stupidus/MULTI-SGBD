@@ -58,7 +58,7 @@
         <?php
         if(isset($_SESSION['connexion_id']) && !empty($_SESSION['connexion_id']))
         {
-            echo "<a href='?cat=0'>Gestion des bases de données</a>";
+            echo "<a href='?cat=0'>Gestion des bases de données</a> - ";
         }
         ?>
         <a href="?cat=3">Se déconnecter</a>
