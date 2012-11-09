@@ -8,7 +8,7 @@
 
     foreach($listeConnexions as $connect)
     {
-        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a> <a href='?cat=2&amp;connexion_id=".$connect['ID']."'>Supprimer</a><br/>";
+        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a> <a href='?cat=1&amp;m=2&amp;connexion_id=".$connect['ID']."'>Supprimer</a><br/>";
     }
     ?>
 </fieldset>
