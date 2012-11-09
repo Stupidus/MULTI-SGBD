@@ -24,6 +24,10 @@ switch($m)
         $connexion->query("INSERT INTO CONNEXIONS (ID, LABEL, SGBD, HOST, PORT, DBNAME, USERNAME, PASSWORD, USER_ID) VALUES (:ID, :LABEL, :SGBD, :HOST, :PORT, :DBNAME, :USERNAME, :PASSWORD, :USER_ID)", $args);
         echo "La connexion a bien été ajoutée. <a href='?cat=0'>Gestion des bases de données</a>";
         break;
+    case 2:
+        $connexion->query("DELETE FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['connexion_id']));
+        echo "La connexion a bien été supprimée. <a href='?cat=0'>Gestion des bases de données</a>";
+        break;
     default:
         $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['connexion_id']));
         try {

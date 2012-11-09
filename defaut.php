@@ -8,7 +8,7 @@
 
     foreach($listeConnexions as $connect)
     {
-        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a><br/>";
+        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a> <a href='?cat=2&amp;connexion_id=".$connect['ID']."'>Supprimer</a><br/>";
     }
     ?>
 </fieldset>
@@ -42,7 +42,7 @@
 		<input type="password" name="password" id="password"/>
 		<br/></br>
 		<div id="centerbutton">
-		<input type="submit" value="Ajouter"/>
+                    <input type="submit" value="Ajouter"/>
 		</div>
 	</form>
 </fieldset>
