@@ -11,7 +11,7 @@ switch($m)
         $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['connexion_id']));
         try {
             $connexionTest = new Connexion($listeConnexions[0]['SGBD'], $listeConnexions[0]['HOST'], $listeConnexions[0]['DBNAME'], $listeConnexions[0]['USERNAME'], $listeConnexions[0]['PASSWORD'], $listeConnexions[0]['PORT']);
-            $_SESSION['id_connexion'] = $_GET['id_connexion'];
+            $_SESSION['id_connexion'] = $_GET['connexion_id'];
             echo "La connexion ".$listeConnexions[0]['LABEL']." a bien été selectionnée. <a href='?cat=2'>Retour</a>";
         }
         catch(Exception $e)
