@@ -11,12 +11,12 @@
             {
                 $_SESSION['auth'] = true;
                 $_SESSION['id_user'] = $q[0]['ID'];
-                echo "Vous avez été correctement identifié par l'application.";
+                echo "Vous avez été correctement identifié par l'application. <a href='index.php'>Retour</a>";
             }
             else
             {
                 $_SESSION['auth'] = false;
-                echo "Erreur de connexion à l'application";
+                echo "Erreur de connexion à l'application. <a href='index.php'>Retour</a>";
             }
         }
         catch(Exception $e)
