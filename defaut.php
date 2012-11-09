@@ -42,7 +42,7 @@
 		<input type="password" name="password" id="password"/>
 		<br/></br>
 		<div id="centerbutton">
-		<input type="submit" value="Connexion"/>
+		<input type="submit" value="Ajouter"/>
 		</div>
 	</form>
 </fieldset>

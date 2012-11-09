@@ -9,11 +9,11 @@ switch($m)
 {
     case 1:
         $infos = $connexion->query("SELECT MAX(ID) FROM CONNEXIONS");
-        var_dump($infos);
+        $id = (int) $infos[0]['MAX(ID)'];
         $args = array(
-            "ID" => $infos[0]['MAX(ID)']+1,
+            "ID" => $id + 1,
             "LABEL" => $_POST['label'],
-            "SGBD" => $_POST['SGBD'],
+            "SGBD" => $_POST['sgbd'],
             "HOST" => $_POST['host'],
             "PORT" => $_POST['port'],
             "DBNAME" => $_POST['dbname'],
@@ -21,7 +21,8 @@ switch($m)
             "PASSWORD" => $_POST['password'],
             "USER_ID" => $_SESSION['id_user']
         );
-        //$connexion->query("INSERT INTO CONNEXIONS");
+        $connexion->query("INSERT INTO CONNEXIONS (ID, LABEL, SGBD, HOST, PORT, DBNAME, USERNAME, PASSWORD, USER_ID) VALUES (:ID, :LABEL, :SGBD, :HOST, :PORT, :DBNAME, :USERNAME, :PASSWORD, :USER_ID)", $args);
+        echo "La connexion a bien été ajoutée. <a href='?cat=0'>Gestion des bases de données</a>";
         break;
     default:
         $listeConnexions = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_GET['connexion_id']));
