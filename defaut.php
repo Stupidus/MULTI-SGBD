@@ -12,6 +12,7 @@
     }
     ?>
 </fieldset>
+<br/>
 <div class="center">
 <fieldset>
 	<h3>Ajouter une connexion à une base de données</h3>
@@ -48,6 +49,7 @@
 </fieldset>
 </div>
 <?php if ($_SESSION['adminlevel'] > 0) { ?>
+    <br/>
     <fieldset class="liste"><legend>Liste des utilisateurs existants</legend>
     <?php
         if($_SESSION['adminlevel'] > 0)
@@ -62,8 +64,8 @@
         }
         ?>
     </fieldset>
-    <div class="center">
-        <br/>
+    <br/>
+    <div class="center">        
         <fieldset>
             <h3>Ajouter un utilisateur</h3>
             <form action="?cat=4&amp;m=1" method="POST">            
