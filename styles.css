@@ -37,7 +37,7 @@ body {
  width: 300px;
  }
  
-div#center{
+div.center{
 margin-left:25%;
 width:50%;
 }

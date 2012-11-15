@@ -23,7 +23,42 @@ switch($m)
         $connexion->query("DELETE FROM USERS WHERE ID = :ID", array(":ID" => $_GET['user_id']));
         echo "L'utilisateur a bien été supprimé. <a href='?cat=0'>Gestion des bases de données</a>";
         break;
-    default:        
+    case 3:
+        $args = array(
+            "ID" => $_POST['ID'],
+            "USERNAME" => $_POST['username'],
+            "PASSWORD" => $_POST['password'],
+            "ADMINLEVEL" => $_POST['adminlevel']
+        );
+        $connexion->query("UPDATE USERS SET USERNAME = :USERNAME, PASSWORD = :PASSWORD, ADMINLEVEL = :ADMINLEVEL WHERE ID = :ID", $args);
+        echo "L'utilisateur a bien été modifié. <a href='?cat=0'>Gestion des bases de données</a>";
+        break;
+    default:
+        $infos = $connexion->query("SELECT * FROM USERS WHERE ID = :ID", array(":ID" => $_GET['user_id']));
+        ?>
+        <div class="center">
+            <br/>
+            <fieldset>
+                <h3>Modifier un utilisateur</h3>
+                <form action="?cat=4&amp;m=3" method="POST">            
+                        <label for="username">Utilisateur : </label>
+                        <input type="text" name="username" id="username" value="<?php echo $infos[0]['USERNAME']; ?>"/>
+                        <br/>
+                        <label for="password">Mot de passe : </label>
+                        <input type="password" name="password" id="password" value="<?php echo $infos[0]['PASSWORD']; ?>"/>
+                        <br/>
+                        <label for="adminlevel">Admin Level (0 / 1) : </label>
+                        <input type="text" name="adminlevel" id="adminlevel" value="<?php echo $infos[0]['ADMINLEVEL']; ?>"/>
+                        <br/>
+                        <br/>
+                        <input type="hidden" name="id" value="<?php echo $infos[0]['ID']; ?>"/>
+                        <div id="centerbutton">
+                            <input type="submit" value="Ajouter"/>
+                        </div>
+                </form>
+            </fieldset>
+        </div>
+        <?php
         break;
 }
 ?>
