@@ -25,7 +25,7 @@ switch($m)
         break;
     case 3:
         $args = array(
-            "ID" => $_POST['ID'],
+            "ID" => $_POST['id'],
             "USERNAME" => $_POST['username'],
             "PASSWORD" => $_POST['password'],
             "ADMINLEVEL" => $_POST['adminlevel']
@@ -47,13 +47,13 @@ switch($m)
                         <label for="password">Mot de passe : </label>
                         <input type="password" name="password" id="password" value="<?php echo $infos[0]['PASSWORD']; ?>"/>
                         <br/>
-                        <label for="adminlevel">Admin Level (0 / 1) : </label>
+                        <label for="adminlevel">Admin Level (0/1) : </label>
                         <input type="text" name="adminlevel" id="adminlevel" value="<?php echo $infos[0]['ADMINLEVEL']; ?>"/>
                         <br/>
                         <br/>
                         <input type="hidden" name="id" value="<?php echo $infos[0]['ID']; ?>"/>
                         <div id="centerbutton">
-                            <input type="submit" value="Ajouter"/>
+                            <input type="submit" value="Modifier"/>
                         </div>
                 </form>
             </fieldset>
