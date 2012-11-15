@@ -8,7 +8,7 @@
 
     foreach($listeConnexions as $connect)
     {
-        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a> <a href='?cat=1&amp;m=2&amp;connexion_id=".$connect['ID']."'>Supprimer</a><br/>";
+        echo "<a href='?cat=1&amp;connexion_id=".$connect['ID']."'>".$connect['LABEL']."</a> <a href='?cat=1&amp;m=2&amp;connexion_id=".$connect['ID']."' onclick='javascript:return(confirm(\"Supprimer ?\"));'>Supprimer</a><br/>";
     }
     ?>
 </fieldset>
@@ -55,7 +55,7 @@
 
         foreach($listeUsers as $user)
         {
-            echo "<a href='?cat=4&amp;user_id=".$user['ID']."'>".$user['USERNAME']."</a> <a href='?cat=4&amp;m=2&amp;user_id=".$user['ID']."'>Supprimer</a><br/>";
+            echo "<a href='?cat=4&amp;user_id=".$user['ID']."'>".$user['USERNAME']."</a> <a href='?cat=4&amp;m=2&amp;user_id=".$user['ID']."' onclick='javascript:return(confirm(\"Supprimer ?\"));'>Supprimer</a><br/>";
         }
         ?>
     </fieldset>
