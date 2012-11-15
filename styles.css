@@ -3,7 +3,7 @@
     Created on : 12 oct. 2012, 14:15:55
     Author     : Victor
     Description:
-        Purpose of the stylesheet follows.
+    Purpose of the stylesheet follows.
 */
 
 root { 
@@ -16,12 +16,12 @@ label {
 }
 
 body {
-   font-family: calibri;
+    font-family: calibri;
 }
 
 
 
- input[type=submit] {
+input[type=submit] {
     width: auto;
     padding: 9px 15px;
     background: #CE0613;
@@ -31,18 +31,18 @@ body {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     cursor: pointer;
- }
+}
 
- fieldset{
-/* width: 300px;*/
- }
- 
+fieldset{
+    width: 40%;
+}
+
 div.center{
-margin-left:25%;
-width:50%;
+    margin-left:25%;
+    width:50%;
 }
 
 div#centerbutton{
-text-align:center;
+    text-align:center;
 }
 
