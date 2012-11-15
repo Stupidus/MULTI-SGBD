@@ -32,6 +32,9 @@
                     session_destroy();
                     $content = "La session été fermée. <a href='index.php'>Retour</a>";
                     break;
+                case 4:
+                    $content = get_include_contents('users.php');
+                    break;
                 default:
                     $content = get_include_contents('defaut.php');
                     break;

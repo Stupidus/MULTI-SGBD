@@ -46,4 +46,21 @@
 		</div>
 	</form>
 </fieldset>
+<?php if ($_SESSION['adminlevel'] > 0) { ?>
+    <br/>
+    <fieldset>
+        <h3>Ajouter un utilisateur</h3>
+        <form action="?cat=4&amp;m=1" method="POST">            
+                <label for="username">Utilisateur : </label>
+                <input type="text" name="username" id="username"/>
+                <br/>
+                <label for="password">Mot de passe : </label>
+                <input type="password" name="password" id="password"/>
+                <br/></br>
+                <div id="centerbutton">
+                    <input type="submit" value="Ajouter"/>
+                </div>
+        </form>
+    </fieldset>
+<?php } ?>
 </div>
