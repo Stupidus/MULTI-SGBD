@@ -37,6 +37,10 @@ fieldset{
     width: 40%;
 }
 
+fieldset.liste{
+    width: 20%;
+}
+
 div.center{
     margin-left:25%;
     width:50%;

@@ -1,4 +1,4 @@
-<fieldset><legend>Liste des connexions existantes</legend>
+<fieldset class="liste"><legend>Liste des connexions existantes</legend>
 <?php
     global $connexion;
     if($_SESSION['adminlevel'] > 0)
@@ -48,7 +48,7 @@
 </fieldset>
 </div>
 <?php if ($_SESSION['adminlevel'] > 0) { ?>
-    <fieldset><legend>Liste des utilisateurs existants</legend>
+    <fieldset class="liste"><legend>Liste des utilisateurs existants</legend>
     <?php
         if($_SESSION['adminlevel'] > 0)
             $listeUsers = $connexion->query("SELECT * FROM USERS ORDER BY ID");        
