@@ -17,7 +17,7 @@ switch($m)
             <thead>
                 <tr>
                     <?php
-                        $clesTable = array_keys($contenuTable);
+                        $clesTable = array_keys($contenuTable[0]);
                         var_dump($clesTable);
                         foreach($clesTable as $cle)
                         {
