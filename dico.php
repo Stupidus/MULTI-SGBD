@@ -6,7 +6,7 @@ if($connexion->getSgbd() == "oracle")
 else if($connexion->getSgbd() == "mysql")
     $dictionnaire = $connexion->query("SELECT TABLE_NAME FROM `information_schema`.`TABLES` WHERE `TABLE_SCHEMA` IN ('information_schema', 'mysql') ORDER BY `TABLE_NAME`");
 ?>
-<table>
+<table style="border:1px solid black;">
     <thead>
         <tr>
             <th>TABLE_NAME</th>
