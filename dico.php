@@ -12,7 +12,34 @@ switch($m)
             $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
         else if($connexion_bdd->getSgbd() == "mysql")
             $contenuTable = $connexion_bdd->query("SELECT * FROM `information_schema`.".$_GET['table_name']."");
-        var_dump($contenuTable);
+        ?>
+        <table style="border:1px solid black;">
+            <thead>
+                <tr>
+                    <?php
+                        $clesTable = array_keys($contenuTable);                        
+                        foreach($clesTable as $cle)
+                        {
+                            echo "<th>".$cle."</th>";
+                        }
+                    ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($contenuTable as $contenu)
+                    {
+                        echo "<tr>";
+                        foreach($clesTable as $cle)
+                        {
+                            echo "<td>".$contenu[$cle]."</td>";
+                        }
+                        echo "</tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
+        <?php
         break;
     default:
         if($connexion_bdd->getSgbd() == "oracle")
