@@ -35,6 +35,15 @@
                 case 4:
                     $content = get_include_contents('users.php');
                     break;
+                case 5:
+                    $content = get_include_contents('dico.php');
+                    break;
+                case 6:
+                    $content = get_include_contents('crea_tables.php');
+                    break;
+                case 7:
+                    $content = get_include_contents('backup.php');
+                    break;
                 default:
                     $content = get_include_contents('defaut.php');
                     break;
