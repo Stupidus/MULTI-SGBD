@@ -7,9 +7,11 @@
 class Connexion {
     
     private $pdo;
+    private $sgbd;
     
     public function  __construct($SGBD, $host, $dbname, $username, $password, $port)
     {
+        $this->sgbd = $SGBD;
         try
         {
             switch($SGBD)
@@ -55,6 +57,11 @@ class Connexion {
             $res = array("Erreur" => $erreur[2]);
         }
         return $res;
+    }
+    
+    public function getSgbd()
+    {
+        return $this->sgbd;
     }
 }
 ?>
