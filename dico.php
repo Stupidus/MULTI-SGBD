@@ -18,7 +18,7 @@ else if($connexion->getSgbd() == "mysql")
             {
                 ?>
                 <tr>
-                    <th><?php echo $table['TABLE_NAME']; ?></th>
+                    <td><?php echo $table['TABLE_NAME']; ?></td>
                 </tr>
                 <?php
             }
