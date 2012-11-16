@@ -6,6 +6,13 @@
     try
     {
         $connexion = new Connexion("oracle", "grive2.u-strasbg.fr", "LPDT", "TASTYSGBD", "tastypassword", "1591");
+        if(isset($_SESSION['connexion_id']) && !empty($_SESSION['connexion_id']))
+        {
+            $infosBdd = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_SESSION['connexion_id']));
+            if($_SESSION['id_user'] ==  $infosBdd[0]['USER_ID'] || $_SESSION['adminlevel'] > 0)
+                $connexion_bdd = new Connexion($infosBdd[0]['SGBD'], $infosBdd[0]['HOST'], $infosBdd[0]['DBNAME'], $infosBdd[0]['USERNAME'], $infosBdd[0]['PASSWORD'], $infosBdd[0]['PORT']);
+            else die("LOLNOPE");
+        }
     }
     catch(Exception $e)
     {

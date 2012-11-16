@@ -1,10 +1,10 @@
 <?php
-global $connexion;
+global $connexion, $connexion_bdd;
 
 if($connexion->getSgbd() == "oracle")
-    $dictionnaire = $connexion->query("SELECT TABLE_NAME FROM DICT");
+    $dictionnaire = $connexion_bdd->query("SELECT TABLE_NAME FROM DICT");
 else if($connexion->getSgbd() == "mysql")
-    $dictionnaire = $connexion->query("SELECT TABLE_NAME FROM `information_schema`.`TABLES` WHERE `TABLE_SCHEMA` IN ('information_schema', 'mysql') ORDER BY `TABLE_NAME`");
+    $dictionnaire = $connexion_bdd->query("SELECT TABLE_NAME FROM `information_schema`.`TABLES` WHERE `TABLE_SCHEMA` IN ('information_schema', 'mysql') ORDER BY `TABLE_NAME`");
 ?>
 <table style="border:1px solid black;">
     <thead>
