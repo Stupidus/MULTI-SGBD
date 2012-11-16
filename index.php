@@ -67,6 +67,7 @@
     <head>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" media="all" href="styles.css" />
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <title>MULTI-SGBD</title>
     </head>
     <body>
