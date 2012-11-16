@@ -1,6 +1,8 @@
 <?php
 global $connexion, $connexion_bdd;
 
+echo "<a href='".$_SERVER['HTTP_REFERER']."'>Retour</a>";
+
 if(isset($_GET['m']) && !empty($_GET['m']))
     $m = $_GET['m'];
 else
@@ -18,7 +20,6 @@ switch($m)
                 <tr>
                     <?php
                         $clesTable = array_keys($contenuTable[0]);
-                        var_dump($clesTable);
                         foreach($clesTable as $cle)
                         {
                             echo "<th>".$cle."</th>";
