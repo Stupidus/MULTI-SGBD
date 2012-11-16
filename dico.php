@@ -8,7 +8,10 @@ else
 switch($m)
 {
     case 1:
-        $contenuTable = $connexion_bdd->query("SELECT * FROM :TABLE_NAME", array(":TABLE_NAME" => $_GET['table_name']));
+        if($connexion_bdd->getSgbd() == "oracle")
+            $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
+        else if($connexion_bdd->getSgbd() == "mysql")
+            $contenuTable = $connexion_bdd->query("SELECT * FROM `information_schema`.".$_GET['table_name']."");
         var_dump($contenuTable);
         break;
     default:
