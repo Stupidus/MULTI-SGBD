@@ -14,34 +14,39 @@ switch($m)
             $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
         else if($connexion_bdd->getSgbd() == "mysql")
             $contenuTable = $connexion_bdd->query("SELECT * FROM `information_schema`.".$_GET['table_name']."");
-        ?>
-        <table style="border:1px solid black;">
-            <thead>
-                <tr>
+        
+        if(sizeof($contenuTable) > 0)
+        {
+            ?>
+            <table style="border:1px solid black;">
+                <thead>
+                    <tr>
+                        <?php
+                            $clesTable = array_keys($contenuTable[0]);
+                            foreach($clesTable as $cle)
+                            {
+                                echo "<th>".$cle."</th>";
+                            }
+                        ?>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
-                        $clesTable = array_keys($contenuTable[0]);
-                        foreach($clesTable as $cle)
+                        foreach($contenuTable as $contenu)
                         {
-                            echo "<th>".$cle."</th>";
+                            echo "<tr>";
+                            foreach($clesTable as $cle)
+                            {
+                                echo "<td>".$contenu[$cle]."</td>";
+                            }
+                            echo "</tr>";
                         }
                     ?>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach($contenuTable as $contenu)
-                    {
-                        echo "<tr>";
-                        foreach($clesTable as $cle)
-                        {
-                            echo "<td>".$contenu[$cle]."</td>";
-                        }
-                        echo "</tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-        <?php
+                </tbody>
+            </table>
+            <?php
+        }
+        else echo "La table demandée est vide";
         break;
     case 2:
         $infosBdd = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_SESSION['connexion_id']));
