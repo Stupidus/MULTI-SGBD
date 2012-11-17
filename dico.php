@@ -14,7 +14,6 @@ switch($m)
             $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
         else if($connexion_bdd->getSgbd() == "mysql")
             $contenuTable = $connexion_bdd->query("SELECT * FROM `information_schema`.".$_GET['table_name']."");
-        
         if(sizeof($contenuTable) > 0)
         {
             ?>
@@ -53,7 +52,7 @@ switch($m)
         if($connexion_bdd->getSgbd() == "oracle")
             $dictionnaire = $connexion_bdd->query("SELECT TABLE_NAME FROM ALL_TABLES WHERE OWNER = :OWNER", array(":OWNER" => strtoupper($infosBdd[0]['USERNAME'])));
         else if($connexion_bdd->getSgbd() == "mysql")
-            $dictionnaire = $connexion_bdd->query("SELECT TABLE_NAME FROM `information_schema`.`TABLES` WHERE `TABLE_SCHEMA` IN ('information_schema', 'mysql') ORDER BY `TABLE_NAME`");
+            $dictionnaire = $connexion_bdd->query("SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = :table_schema", array(":table_schema" => $infosBdd[0]['USERNAME']));
         ?>
         <table style="border:1px solid black;">
             <thead>
@@ -67,7 +66,7 @@ switch($m)
                     {
                         ?>
                         <tr>
-                            <td><a href="?cat=5&amp;m=1&amp;table_name=<?php echo $table['TABLE_NAME']; ?>"><?php echo $table['TABLE_NAME']; ?></a></td>
+                            <td><a href="?cat=5&amp;m=3&amp;table_name=<?php echo $table['TABLE_NAME']; ?>"><?php echo $table['TABLE_NAME']; ?></a></td>
                         </tr>
                         <?php
                     }
@@ -75,6 +74,41 @@ switch($m)
             </tbody>
         </table>
         <?php
+        break;
+    case 3:
+        $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
+        if(sizeof($contenuTable) > 0)
+        {
+            ?>
+            <table style="border:1px solid black;">
+                <thead>
+                    <tr>
+                        <?php
+                            $clesTable = array_keys($contenuTable[0]);
+                            foreach($clesTable as $cle)
+                            {
+                                echo "<th>".$cle."</th>";
+                            }
+                        ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($contenuTable as $contenu)
+                        {
+                            echo "<tr>";
+                            foreach($clesTable as $cle)
+                            {
+                                echo "<td>".$contenu[$cle]."</td>";
+                            }
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+            <?php
+        }
+        else echo "La table demandée est vide";
         break;
     default:
         if($connexion_bdd->getSgbd() == "oracle")
