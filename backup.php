@@ -77,7 +77,7 @@ switch($m)
                 <input type="text" name="fichier" id="fichier"/>
                 <br/>
                 <div id="centerbutton">
-                <input type="submit" value="Connexion"/>
+                <input type="submit" value="Sauvegarde"/>
                 </div>
             </form>
             </fieldset>
