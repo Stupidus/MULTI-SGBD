@@ -40,24 +40,30 @@ class DatabaseManager {
             $res .= ");";
             $res .= "<br/><br/>";
             $lignes = $this->database->query("SELECT * FROM ".$tableName."");
-            foreach($lignes as $ligne)
+            if(!isset($lignes["Erreur"]))
             {
-                $res .= "INSERT INTO \"".strtoupper($schema)."\".\"".$tableName."\" VALUES (";
-                foreach($colonnes as $colonne)
+                foreach($lignes as $ligne)
                 {
-                    if($ligne[$colonne['COLUMN_NAME']] == "")
-                        $res .= "NULL, ";
-                    else
+                    $res .= "INSERT INTO \"".strtoupper($schema)."\".\"".$tableName."\" VALUES (";
+                    foreach($colonnes as $colonne)
                     {
-                        if($colonne['DATA_TYPE'] == "NUMBER")
-                            $res .= $ligne[$colonne['COLUMN_NAME']].", ";
+                        if($ligne[$colonne['COLUMN_NAME']] == "")
+                            $res .= "NULL, ";
                         else
-                            $res .= "'".$ligne[$colonne['COLUMN_NAME']]."', ";
+                        {
+                            if($colonne['DATA_TYPE'] == "NUMBER")
+                                $res .= $ligne[$colonne['COLUMN_NAME']].", ";
+                            else
+                                $res .= "'".$ligne[$colonne['COLUMN_NAME']]."', ";
+                        }
                     }
+                    $res = substr($res, 0, sizeof($res)-3);
+                    $res .= ");<br/>";
                 }
-                $res = substr($res, 0, sizeof($res)-3);
-                $res .= ");<br/>";
             }
+            else
+                $res .= $lignes["Erreur"]."<br/>";
+            $res .= "<br/>";
         }
         else if($this->database->getSgbd() == "mysql")
         {
@@ -84,6 +90,7 @@ class DatabaseManager {
                 $res = substr($res, 0, sizeof($res)-3);
                 $res .= ");<br/>";
             }
+            $res .= "<br/>";
         }
         return $res;
     }
