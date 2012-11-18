@@ -37,7 +37,7 @@ class Connexion {
         }
     }
     
-    public function query($statement, $args = NULL)
+    public function query($statement, $args = NULL, $fetchType = PDO::FETCH_ASSOC)
     {
         $q = $this->pdo->prepare($statement);
         if($args)
@@ -49,7 +49,7 @@ class Connexion {
         }
         if($q->execute())
         {
-            $res = $q->fetchAll(PDO::FETCH_ASSOC);
+            $res = $q->fetchAll($fetchType);
         }
         else
         {

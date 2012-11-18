@@ -1,5 +1,7 @@
 <?php
 global $connexion, $connexion_bdd;
+include 'classes/databaseManager.class.php';
+$databaseManager = new DatabaseManager($connexion_bdd);
 
 echo "<a href='".$_SERVER['HTTP_REFERER']."'>Retour</a><br/><br/>";
 
@@ -43,6 +45,15 @@ switch($m)
                     ?>
                 </tbody>
             </table>
+            <br/>
+            <div>
+                <?php
+                if($connexion_bdd->getSgbd() == "oracle")                    
+                    echo $databaseManager->exportTable($_GET['table_name'], "SYS");                
+                else if($connexion_bdd->getSgbd() == "mysql")
+                    echo $databaseManager->exportTable($_GET['table_name'], "information_schema");
+                ?>
+            </div>
             <?php
         }
         else echo "La table demandée est vide";
@@ -72,10 +83,11 @@ switch($m)
                     }
                 ?>
             </tbody>
-        </table>
+        </table>        
         <?php
         break;
     case 3:
+        $infosBdd = $connexion->query("SELECT * FROM CONNEXIONS WHERE ID = :ID", array(":ID" => $_SESSION['connexion_id']));
         $contenuTable = $connexion_bdd->query("SELECT * FROM ".$_GET['table_name']."");
         if(sizeof($contenuTable) > 0)
         {
@@ -106,6 +118,12 @@ switch($m)
                     ?>
                 </tbody>
             </table>
+            <br/>
+            <div>
+                <?php
+                echo $databaseManager->exportTable($_GET['table_name'], $infosBdd[0]['USERNAME']);                
+                ?>
+            </div>
             <?php
         }
         else echo "La table demandée est vide";
